@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "pug": "^3.0.0",
+    "raw-loader": "^4.0.2"
+  },
+  "name": "vue-cli-plugin-pug-with-css-modules",
+  "version": "1.0.0",
+  "description": "Vue CLI 3 plugin to add support for pug templates in addition with CSS modules, so you won't have to use $style object, just write the code as usual",
+  "main": "index.js",
+  "dependencies": {},
+  "author": "ZEOKKU <contact@zeokku.com>",
+  "license": "ISC"
+}

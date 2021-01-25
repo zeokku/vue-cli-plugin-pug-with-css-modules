@@ -1,0 +1,16 @@
+bob.sas(
+  :class="{ state, locked }",
+  @click="setState",
+  :zk-state-default="stateDefault",
+  :zk-state-active="stateActive"
+)
+  .child 
+    .grand-child
+
+#id.a.z.x(:class="[b, c, d]")
+
+div(:class="{d: someVar}" :id="someIdVar")
+div(:class="a ? 'b' : c")
+div(:class="someOtherVar")
+
+bob
