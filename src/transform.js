@@ -43,6 +43,7 @@ const transform = (source) => {
                             break;
 
                         case ':class':
+                        case 'v-bind:class':
 
                             //remove quotes "
                             let c = attr.val.slice(1, -1)
@@ -77,6 +78,7 @@ const transform = (source) => {
                             break;
 
                         case ':id':
+                        case 'v-bind:id':
 
                             //"id" -> remove quotes "
                             idAttrVal = `$style[${attr.val.slice(1, -1)}]`
@@ -91,7 +93,7 @@ const transform = (source) => {
             )
 
             if (classes.length || idAttrVal) {
-                let finalAttrs = node.attrs.filter(a => !['class', ':class', 'id', ':id'].includes(a.name));
+                let finalAttrs = node.attrs.filter(a => !['class', ':class', 'v-bind:class', 'id', ':id', 'v-bind:id'].includes(a.name));
 
                 if (classes.length) {
                     let resultingClassAttr = (classes.length == 1) ? classes[0] : '[ ' + classes.join(', ') + ' ]';
