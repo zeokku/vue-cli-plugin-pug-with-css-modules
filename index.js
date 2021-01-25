@@ -1,6 +1,6 @@
 const path = require('path');
 
-const loaderPath = path.resolve('./loader.js');
+const loaderPath = path.resolve('./src/loader.js');
 
 module.exports = (api, options) => {
     //rules: https://vue-loader.vuejs.org/guide/pre-processors.html#pug

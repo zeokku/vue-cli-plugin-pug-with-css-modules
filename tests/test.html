@@ -1,0 +1,11 @@
+
+<bob :class="[ $style['sas'], {[$style['state']] : state}, {[$style['locked']] : locked} ]" @click="setState" :zk-state-default="stateDefault" :zk-state-active="stateActive">
+  <div :class="$style['child']"> 
+    <div :class="$style['grand-child']"></div>
+  </div>
+</bob>
+<div :id="$style['id']" :class="[ $style['a'], $style['z'], $style['x'], $style[b], $style[c], $style[d] ]"></div>
+<div :id="$style[someIdVar]" :class="{[$style['d']] : someVar}"></div>
+<div :class="$style[a ? 'b' : c]"></div>
+<div :class="$style[someOtherVar]"></div>
+<bob></bob>

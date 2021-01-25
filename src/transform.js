@@ -1,42 +1,29 @@
 const lex = require('pug-lexer')
 const parse = require('pug-parser');
 const walk = require('pug-walk')
-const generateCode = require('pug-code-gen');
-const wrap = require('pug-runtime/wrap')
 
-const { getOptions } = require('loader-utils')
+const classObjParse = (classObjString) => {
+    let result = [];
 
-module.exports = function (source) {
-    if (this.debug) {
-        console.log(this.resourcePath)
-    }
+    //remove {} and split entries
+    classObjString.trim().slice(1, -1).trim().split(/\s*,\s*/).forEach(e => {
+        let [key, val] = e.split(/\s*:\s*/);
 
-    const options = Object.assign({
-        //filename: this.resourcePath,
-        doctype: 'html',
-        compileDebug: this.debug || false
-    }, getOptions(this))
+        //if key is a string
+        key = key.startsWith("'") ? key.slice(1, -1) : key;
+
+        // in case of {var2}
+        val = val || key;
+
+        result.push(`{[$style['${key}']] : ${val}}`);
+    })
+
+    return result;
+}
+
+const transform = (source) => {
 
     let ast = parse(lex(source))
-
-    const classObjParse = (c) => {
-        let result = [];
-
-        //remove {} and split entries
-        c.trim().slice(1, -1).trim().split(/\s*,\s*/).forEach(e => {
-            let [key, val] = e.split(/\s*:\s*/);
-
-            //if key is a string
-            key = key.startsWith("'") ? key.slice(1, -1) : key;
-
-            // in case of {var2}
-            val = val || key;
-
-            result.push(`{[$style['${key}']] : ${val}}`);
-        })
-
-        return result;
-    }
 
     ast = walk(ast, (node) => {
         if (node.attrs && node.attrs.length) {
@@ -107,11 +94,11 @@ module.exports = function (source) {
                 let finalAttrs = node.attrs.filter(a => !['class', ':class', 'id', ':id'].includes(a.name));
 
                 if (classes.length) {
-                    let resultingClassArray = '[ ' + classes.join(', ') + ' ]';
+                    let resultingClassAttr = (classes.length == 1) ? classes[0] : '[ ' + classes.join(', ') + ' ]';
 
                     finalAttrs.unshift({
                         name: ':class',
-                        val: '"' + resultingClassArray + '"',
+                        val: '"' + resultingClassAttr + '"',
                         mustEscape: true
                     })
                 }
@@ -129,16 +116,8 @@ module.exports = function (source) {
         }
     })
 
+    return ast;
 
-    //generate template function string
-    let funcStr = generateCode(ast, options);
-
-    //generate template function
-    let template = wrap(funcStr);
-
-    //add dependancy files to watch them (no such thing here)
-    //template.dependencies.forEach(this.addDependency)
-
-    //template({locals}), locals are vars referenced by using #{var} in pug src | { var: 'bob' }
-    return template(options.locals || {})
 }
+
+module.exports = { transform }
