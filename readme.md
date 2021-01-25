@@ -1,5 +1,5 @@
 ## vue-cli-plugin-pug-with-css-modules
-Vue CLI plugin to add support for pug templates with implicit support of CSS modules, so you won't have to use $style object, just write the code as usual
+Vue CLI plugin to add support for pug templates with implicit support of CSS modules providing CSS classname and id minification, so you won't have to use $style object, just write the code as usual
 
 ## Installation:
 ```
