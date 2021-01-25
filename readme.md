@@ -1,11 +1,11 @@
 # vue-cli-plugin-pug-with-css-modules
-## Vue CLI plugin to add support for pug templates with implicit support of CSS modules, so you won't have to use $style object, just write the code as usual
+#### Vue CLI plugin to add support for pug templates with implicit support of CSS modules, so you won't have to use $style object, just write the code as usual
 
 ```
 vue add pug-with-css-modules
 ```
 
-## You don't need to change your templates. Look at the example:
+#### You don't need to change your templates. Look at the example:
 
 ```vue
 <template lang="pug">
@@ -28,7 +28,7 @@ bob
 </template>
 ```
 
-## The plugin compiles pug and processes class and id attributes to use $style:
+#### The plugin compiles pug and processes class and id attributes to use $style:
 
 ```html
 <bob :class="[ $style['sas'], {[$style['state']] : state}, {[$style['locked']] : locked} ]" @click="setState" :zk-state-default="stateDefault" :zk-state-active="stateActive">
@@ -43,7 +43,7 @@ bob
 <bob></bob>
 ```
 
-## Don't forget to use **module** attribute for your styles:
+#### Don't forget to use **module** attribute for your styles:
 
 ```vue
 <style lang="less" scoped module>
@@ -51,7 +51,7 @@ bob
 </style>
 ```
 
-## And setup **vue.config.js** properly:
+#### And setup **vue.config.js** properly:
 
 ```js
 module.exports = {
