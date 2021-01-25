@@ -4,6 +4,7 @@ const walk = require('pug-walk')
 const generateCode = require('pug-code-gen');
 const wrap = require('pug-runtime/wrap')
 
+const { getOptions } = require('loader-utils')
 
 module.exports = function (source) {
     if (this.debug) {
@@ -14,7 +15,7 @@ module.exports = function (source) {
         //filename: this.resourcePath,
         doctype: 'html',
         compileDebug: this.debug || false
-    }, this.getOptions())
+    }, getOptions(this))
 
     let ast = parse(lex(source))
 
@@ -31,7 +32,7 @@ module.exports = function (source) {
             // in case of {var2}
             val = val || key;
 
-            result.push(`{[$style['${key}']] : ${val}]}`);
+            result.push(`{[$style['${key}']] : ${val}}`);
         })
 
         return result;
@@ -102,25 +103,29 @@ module.exports = function (source) {
                 }
             )
 
-            let finalAttrs = node.attrs.filter(a => !['class', ':class', 'id', ':id'].includes(a.name));
+            if (classes.length || idAttrVal) {
+                let finalAttrs = node.attrs.filter(a => !['class', ':class', 'id', ':id'].includes(a.name));
 
-            let resultingClassArray = '[ ' + classes.join(', ') + ' ]';
+                if (classes.length) {
+                    let resultingClassArray = '[ ' + classes.join(', ') + ' ]';
 
-            finalAttrs.push({
-                name: ':class',
-                val: '"' + resultingClassArray + '"',
-                mustEscape: true
-            })
+                    finalAttrs.unshift({
+                        name: ':class',
+                        val: '"' + resultingClassArray + '"',
+                        mustEscape: true
+                    })
+                }
 
-            if (idAttrVal) {
-                finalAttrs.push({
-                    name: ':id',
-                    val: '"' + idAttrVal + '"',
-                    mustEscape: true
-                })
+                if (idAttrVal) {
+                    finalAttrs.unshift({
+                        name: ':id',
+                        val: '"' + idAttrVal + '"',
+                        mustEscape: true
+                    })
+                }
+
+                node.attrs = finalAttrs;
             }
-
-            node.attrs = finalAttrs;
         }
     })
 
@@ -131,7 +136,7 @@ module.exports = function (source) {
     //generate template function
     let template = wrap(funcStr);
 
-    //add dependancy files to watch them
+    //add dependancy files to watch them (no such thing here)
     //template.dependencies.forEach(this.addDependency)
 
     //template({locals}), locals are vars referenced by using #{var} in pug src | { var: 'bob' }

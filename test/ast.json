@@ -1,0 +1,253 @@
+{
+    "type": "Block",
+    "nodes": [
+        {
+            "type": "Tag",
+            "name": "bob",
+            "selfClosing": false,
+            "block": {
+                "type": "Block",
+                "nodes": [
+                    {
+                        "type": "Tag",
+                        "name": "div",
+                        "selfClosing": false,
+                        "block": {
+                            "type": "Block",
+                            "nodes": [
+                                {
+                                    "type": "Text",
+                                    "val": " ",
+                                    "line": 7,
+                                    "column": 9
+                                },
+                                {
+                                    "type": "Tag",
+                                    "name": "div",
+                                    "selfClosing": false,
+                                    "block": {
+                                        "type": "Block",
+                                        "nodes": [],
+                                        "line": 8
+                                    },
+                                    "attrs": [
+                                        {
+                                            "name": "class",
+                                            "val": "'grand-child'",
+                                            "line": 8,
+                                            "column": 5,
+                                            "mustEscape": false
+                                        }
+                                    ],
+                                    "attributeBlocks": [],
+                                    "isInline": false,
+                                    "line": 8,
+                                    "column": 5
+                                }
+                            ],
+                            "line": 7
+                        },
+                        "attrs": [
+                            {
+                                "name": "class",
+                                "val": "'child'",
+                                "line": 7,
+                                "column": 3,
+                                "mustEscape": false
+                            }
+                        ],
+                        "attributeBlocks": [],
+                        "isInline": false,
+                        "line": 7,
+                        "column": 3
+                    }
+                ],
+                "line": 1
+            },
+            "attrs": [
+                {
+                    "name": "class",
+                    "val": "'sas'",
+                    "line": 1,
+                    "column": 4,
+                    "mustEscape": false
+                },
+                {
+                    "name": ":class",
+                    "val": "\"{ state, locked }\"",
+                    "line": 2,
+                    "column": 3,
+                    "mustEscape": true
+                },
+                {
+                    "name": "@click",
+                    "val": "\"setState\"",
+                    "line": 3,
+                    "column": 3,
+                    "mustEscape": true
+                },
+                {
+                    "name": ":zk-state-default",
+                    "val": "\"stateDefault\"",
+                    "line": 4,
+                    "column": 3,
+                    "mustEscape": true
+                },
+                {
+                    "name": ":zk-state-active",
+                    "val": "\"stateActive\"",
+                    "line": 5,
+                    "column": 3,
+                    "mustEscape": true
+                }
+            ],
+            "attributeBlocks": [],
+            "isInline": false,
+            "line": 1,
+            "column": 1
+        },
+        {
+            "type": "Tag",
+            "name": "div",
+            "selfClosing": false,
+            "block": {
+                "type": "Block",
+                "nodes": [],
+                "line": 10
+            },
+            "attrs": [
+                {
+                    "name": "id",
+                    "val": "'id'",
+                    "line": 10,
+                    "column": 1,
+                    "mustEscape": false
+                },
+                {
+                    "name": "class",
+                    "val": "'a'",
+                    "line": 10,
+                    "column": 4,
+                    "mustEscape": false
+                },
+                {
+                    "name": "class",
+                    "val": "'z'",
+                    "line": 10,
+                    "column": 6,
+                    "mustEscape": false
+                },
+                {
+                    "name": "class",
+                    "val": "'x'",
+                    "line": 10,
+                    "column": 8,
+                    "mustEscape": false
+                },
+                {
+                    "name": ":class",
+                    "val": "\"[b, c, d]\"",
+                    "line": 10,
+                    "column": 11,
+                    "mustEscape": true
+                }
+            ],
+            "attributeBlocks": [],
+            "isInline": false,
+            "line": 10,
+            "column": 1
+        },
+        {
+            "type": "Tag",
+            "name": "div",
+            "selfClosing": false,
+            "block": {
+                "type": "Block",
+                "nodes": [],
+                "line": 12
+            },
+            "attrs": [
+                {
+                    "name": ":class",
+                    "val": "\"{d: someVar}\"",
+                    "line": 12,
+                    "column": 5,
+                    "mustEscape": true
+                },
+                {
+                    "name": ":id",
+                    "val": "\"someIdVar\"",
+                    "line": 12,
+                    "column": 27,
+                    "mustEscape": true
+                }
+            ],
+            "attributeBlocks": [],
+            "isInline": false,
+            "line": 12,
+            "column": 1
+        },
+        {
+            "type": "Tag",
+            "name": "div",
+            "selfClosing": false,
+            "block": {
+                "type": "Block",
+                "nodes": [],
+                "line": 13
+            },
+            "attrs": [
+                {
+                    "name": ":class",
+                    "val": "\"a ? 'b' : c\"",
+                    "line": 13,
+                    "column": 5,
+                    "mustEscape": true
+                }
+            ],
+            "attributeBlocks": [],
+            "isInline": false,
+            "line": 13,
+            "column": 1
+        },
+        {
+            "type": "Tag",
+            "name": "div",
+            "selfClosing": false,
+            "block": {
+                "type": "Block",
+                "nodes": [],
+                "line": 14
+            },
+            "attrs": [
+                {
+                    "name": ":class",
+                    "val": "\"someOtherVar\"",
+                    "line": 14,
+                    "column": 5,
+                    "mustEscape": true
+                }
+            ],
+            "attributeBlocks": [],
+            "isInline": false,
+            "line": 14,
+            "column": 1
+        },
+        {
+            "type": "Tag",
+            "name": "bob",
+            "selfClosing": false,
+            "block": {
+                "type": "Block",
+                "nodes": [],
+                "line": 16
+            },
+            "attrs": [],
+            "attributeBlocks": [],
+            "isInline": false,
+            "line": 16,
+            "column": 1
+        }
+    ],
+    "line": 0
+}

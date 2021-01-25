@@ -10,7 +10,7 @@ const source = fs.readFileSync('./test/index.pug').toString();
 
 let ast = parse(lex(source))
 
-fs.writeFileSync('./ast.json', JSON.stringify(ast, null, 4))
+fs.writeFileSync('./test/ast.json', JSON.stringify(ast, null, 4))
 
 const classObjParse = (c) => {
     let result = [];
