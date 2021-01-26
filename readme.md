@@ -1,7 +1,7 @@
 ## vue-cli-plugin-pug-with-css-modules
-![npm](https://img.shields.io/npm/v/vue-cli-plugin-pug-with-css-modules?color=pink)
-![npm](https://img.shields.io/npm/dw/vue-cli-plugin-pug-with-css-modules?color=pink)
-[![Discord](https://img.shields.io/discord/405510915845390347?color=pink&label=join%20discord)](https://zeokku.com/discord)
+![npm](https://img.shields.io/npm/v/vue-cli-plugin-pug-with-css-modules?color=pink&style=flat-square)
+![npm](https://img.shields.io/npm/dw/vue-cli-plugin-pug-with-css-modules?color=pink&style=flat-square)
+[![Discord](https://img.shields.io/discord/405510915845390347?color=pink&label=join%20discord&style=flat-square)](https://zeokku.com/discord)
 
 Vue CLI plugin to add support for pug templates with implicit support of CSS modules (providing CSS classname and ID minification), so you won't have to use $style object, just write the code as usual
 
