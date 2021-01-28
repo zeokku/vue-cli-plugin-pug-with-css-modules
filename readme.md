@@ -12,6 +12,9 @@ vue add pug-with-css-modules
 
 You don't need to change your templates. Look at the example:
 
+<details>
+  <summary>Show example</summary>
+  
 ```vue
 <template lang="pug">
 bob.sas(
@@ -47,6 +50,8 @@ The plugin compiles pug and processes class and id attributes to use $style:
 <div :class="$style[someOtherVar]"></div>
 <bob></bob>
 ```
+
+</details>
 
 Don't forget to use **module** attribute for your styles:
 
