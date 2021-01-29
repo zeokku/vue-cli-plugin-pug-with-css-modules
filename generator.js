@@ -1,17 +1,14 @@
-//inject css config into vue.config.js
-//css: {...injected_config}
-
-//https://cli.vuejs.org/dev-guide/generator-api.html#injectimports
-
 const fs = require('fs');
 const path = require('path');
 
+const chalk = require('chalk')
+
 //patch vue.config file
 module.exports = api => {
-    const accent = chalk.underline.italic.bold.keyword('purple');
-    const notif = chalk.keyword('black').bgKeyword('darkorange').bold;
+    const accent = chalk.italic.bold.keyword('cyan');
+    const notif = chalk.keyword('darkorange').bold;
 
-    console.log(notif(`Patching ${accent('vue.config.js')} with CSS config`));
+    console.log(`Patching ${accent('vue.config.js')}...`);
 
     let config = {};
 
@@ -19,8 +16,6 @@ module.exports = api => {
     let configAbsPath = path.join(__dirname, configPath)
 
     if (fs.existsSync(configAbsPath)) {
-        console.log(notif('vue.config found!'));
-
         config = require(configPath);
     }
 
@@ -31,7 +26,7 @@ module.exports = api => {
         loaderOptions: {
             css: {
                 modules: {
-                    localIdentName: '[name]_[local]',//process.env.NODE_ENV === 'production' ? '[sha256:hash:base52:2]' : '[name]_[local]',//[local]
+                    localIdentName: '[name]_[local]',
 
                     //if this returns undefined, then localIdentName is used
                     getLocalIdent: api.makeJSOnlyValue(`process.env.NODE_ENV === 'production' ? nameGeneratorContext() : () => { }`),
@@ -43,12 +38,22 @@ module.exports = api => {
 
     Object.assign(config.css, cssPluginConfig);
 
-    let configStr = api.genJSConfig(config);
+    let configStr =
+        'const nameGeneratorContext = require("vue-cli-plugin-pug-with-css-modules/nameGeneratorContext")' + '\n\n' +
+        api.genJSConfig(config);
 
-    fs.writeFileSync(configAbsPath, configStr);
 
-    api.injectImports(configAbsPath, 'const nameGeneratorContext = require("vue-cli-plugin-pug-with-css-modules/nameGeneratorContext")')
+    //why sync version didn't work doe?????? when patching existing. needs investigation
+    fs.writeFile(configAbsPath, configStr, () => {
+        console.log(`vue.config.js ${chalk.green('stored!')}`)
+    });
 
-    console.log(notif(`Don't forget to use ${accent('module')} attribute in ${accent('<style>')}`));
+    //move one line up '\033[1A'
+
+    console.log(
+        notif(
+            `Don't forget to use ${accent('module')} attribute in ${accent('<style>')}`) + '\n' +
+        notif(
+            `Also there's ${accent('no need')} to use ${accent('scoped')} attribute, as built-in function generates scoped class names`))
 }
 

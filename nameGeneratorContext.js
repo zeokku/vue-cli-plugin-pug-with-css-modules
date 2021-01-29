@@ -1,3 +1,5 @@
+const incstr = require('incstr')
+
 const nameGeneratorContext = () => {
     let namesMap = {};
 
@@ -16,17 +18,12 @@ const nameGeneratorContext = () => {
             name = nameGenerator()
         }
         while (/^[-\d]|(?:[-_]+|^)ad/.test(name));
-        //hypens are reserved for vendor classes, also it can't start with a digit
-        //also exclude ^ad or any _ad, -ad constructions to avoid adblock problem
+        //hypen prefixes are reserved for vendor classes, also it can't start with a digit
+        //in addition exclude ^ad or any _ad, -ad constructions to avoid adblock problem
 
         namesMap[key] = name;
 
         return name;
-
-        // let te = new TextEncoder();
-        // crypto.subtle.digest("SHA-256", te.encode(localName))
-
-        // return localIdentName
     }
 }
 
