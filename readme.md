@@ -56,25 +56,9 @@ The plugin compiles pug and processes class and id attributes to use $style:
 Don't forget to use **module** attribute for your styles:
 
 ```vue
-<style lang="less" scoped module>
+<style lang="less" module>
 ...
 </style>
 ```
 
-And setup **vue.config.js** properly:
-
-```js
-module.exports = {
-//...
-  css: {
-      requireModuleExtension: false,
-      loaderOptions: {
-          css: {
-              modules: {
-                  localIdentName: process.env.NODE_ENV === 'production' ? '[hash:base64:2]' : '[name]_[local]',
-              },
-          },
-      }
-  }
-}
-```
+**vue.config.js** will be patched automatically
