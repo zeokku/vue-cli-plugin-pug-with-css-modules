@@ -1,5 +1,7 @@
 const incstr = require('incstr')
 
+const path = require('path');
+
 const nameGeneratorContext = () => {
     let namesMap = {};
 
