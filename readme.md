@@ -3,18 +3,29 @@
 [![npm](https://img.shields.io/npm/dw/vue-cli-plugin-pug-with-css-modules?color=pink&style=flat-square)](https://www.npmjs.com/package/vue-cli-plugin-pug-with-css-modules)
 [![Discord](https://img.shields.io/discord/405510915845390347?color=pink&label=join%20discord&style=flat-square)](https://zeokku.com/discord)
 
-Vue CLI plugin to add support for pug templates with implicit support of CSS modules (providing CSS classname and ID minification), so you won't have to use $style object, just write the code as usual
+Vue CLI plugin to add support for pug templates with implicit support of CSS modules, so you won't have to use $style object, just write the code as usual
+
+The plugin also provides own minification function for class names and ids used in production mode (see patched vue.config.js)
 
 ## Installation:
 ```
 vue add pug-with-css-modules
 ```
 
-You don't need to change your templates. Look at the example:
+**vue.config.js** will be patched automatically
 
-<details>
-  <summary>Show example</summary>
-  
+Don't forget to use **module** attribute for your styles used in templates:
+
+```vue
+<style lang="less" module>
+...
+</style>
+```
+
+As well you won't need **scoped** attribute as transform function will generate already scoped class names
+
+You don't need to change your templates to use the plugin. Look at the example:
+
 ```vue
 <template lang="pug">
 bob.sas(
@@ -50,15 +61,3 @@ The plugin compiles pug and processes class and id attributes to use $style:
 <div :class="$style[someOtherVar]"></div>
 <bob></bob>
 ```
-
-</details>
-
-Don't forget to use **module** attribute for your styles:
-
-```vue
-<style lang="less" module>
-...
-</style>
-```
-
-**vue.config.js** will be patched automatically
