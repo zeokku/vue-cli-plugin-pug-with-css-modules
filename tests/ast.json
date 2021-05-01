@@ -235,17 +235,115 @@
         },
         {
             "type": "Tag",
-            "name": "bob",
+            "name": "sas",
             "selfClosing": false,
             "block": {
                 "type": "Block",
                 "nodes": [],
                 "line": 16
             },
-            "attrs": [],
+            "attrs": [
+                {
+                    "name": ":class",
+                    "val": "`[component, { disabled: finalDisabled, loading, ghost, }]`",
+                    "line": 16,
+                    "column": 5,
+                    "mustEscape": true
+                }
+            ],
             "attributeBlocks": [],
             "isInline": false,
             "line": 16,
+            "column": 1
+        },
+        {
+            "type": "Tag",
+            "name": "div",
+            "selfClosing": false,
+            "block": {
+                "type": "Block",
+                "nodes": [],
+                "line": 18
+            },
+            "attrs": [
+                {
+                    "name": "class",
+                    "val": "'--preserve-this-name'",
+                    "line": 18,
+                    "column": 1,
+                    "mustEscape": false
+                },
+                {
+                    "name": "id",
+                    "val": "'--some-id'",
+                    "line": 18,
+                    "column": 22,
+                    "mustEscape": false
+                }
+            ],
+            "attributeBlocks": [],
+            "isInline": false,
+            "line": 18,
+            "column": 1
+        },
+        {
+            "type": "Tag",
+            "name": "div",
+            "selfClosing": false,
+            "block": {
+                "type": "Block",
+                "nodes": [],
+                "line": 20
+            },
+            "attrs": [
+                {
+                    "name": "id",
+                    "val": "'--id2'",
+                    "line": 20,
+                    "column": 1,
+                    "mustEscape": false
+                },
+                {
+                    "name": "class",
+                    "val": "'id2-class'",
+                    "line": 20,
+                    "column": 7,
+                    "mustEscape": false
+                }
+            ],
+            "attributeBlocks": [],
+            "isInline": false,
+            "line": 20,
+            "column": 1
+        },
+        {
+            "type": "Tag",
+            "name": "div",
+            "selfClosing": false,
+            "block": {
+                "type": "Block",
+                "nodes": [],
+                "line": 22
+            },
+            "attrs": [
+                {
+                    "name": "class",
+                    "val": "'--class3'",
+                    "line": 22,
+                    "column": 1,
+                    "mustEscape": false
+                },
+                {
+                    "name": "id",
+                    "val": "'id3'",
+                    "line": 22,
+                    "column": 10,
+                    "mustEscape": false
+                }
+            ],
+            "attributeBlocks": [],
+            "isInline": false,
+            "line": 22,
             "column": 1
         }
     ],

@@ -8,4 +8,7 @@
 <div :id="$style[someIdVar]" :class="{[$style['d']] : someVar}"></div>
 <div :class="$style[a ? 'b' : c]"></div>
 <div :class="$style[someOtherVar]"></div>
-<bob></bob>
+<sas :class="[ $style[component], {[$style['disabled']] : finalDisable}, $style[loading], $style[ghost], $style[}] ]"></sas>
+<div id="some-id" :class="'preserve-this-name'"></div>
+<div id="id2" :class="$style['id2-class']"></div>
+<div :id="$style['id3']" :class="'class3'"></div>
