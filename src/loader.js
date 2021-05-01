@@ -3,8 +3,6 @@ const { transform } = require("./transform");
 const generateCode = require("pug-code-gen");
 const wrap = require("pug-runtime/wrap");
 
-const { getOptions } = require("loader-utils");
-
 module.exports = function (source) {
   const options = Object.assign(
     {
@@ -12,9 +10,8 @@ module.exports = function (source) {
       doctype: "html",
       compileDebug: this.debug || false,
     },
-    getOptions(this)
+    this.getOptions()
   );
-  //this.getOptions()
 
   let ast = transform(source);
 

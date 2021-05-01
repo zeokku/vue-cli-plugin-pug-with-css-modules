@@ -18,14 +18,16 @@ module.exports = (api, options) => {
             // this applies to `<template lang="pug">` in Vue components
             {
               resourceQuery: /^\?vue/,
-              use: [loaderPath],
-              //options: {}
+              use: {
+                loader: loaderPath,
+                //options: {}
+              },
             },
             // this applies to pug imports inside JavaScript
             {
               //removed 'raw-loader', instead use asset modules
               type: "asset/source",
-              use: [loaderPath],
+              use: loaderPath,
             },
           ],
         },
