@@ -20,7 +20,7 @@ Don't forget to use **module** attribute for your styles used in templates:
 
 ```vue
 <style lang="less" module>
-...;
+//
 </style>
 ```
 
@@ -52,14 +52,14 @@ bob
 
 <style module>
 .sas {
-  ...;
+  //
 }
 
 .state {
-  ...;
+  //
 }
 
-...;
+//
 </style>
 ```
 
@@ -88,7 +88,7 @@ The plugin compiles pug and processes class and id attributes to use $style:
 
 ## Edge cases
 
-Sometimes it's needed to preserve id/class names, in this case use `--` as a prefix to preserve the name.
+Sometimes it's needed to preserve id/class names. In this scenario use `--` as a prefix to preserve the name.
 
 **ID Example:**
 
@@ -108,7 +108,7 @@ svg <!-- preserve tag case -->
 </style>
 ```
 
-Notice, that the prefix is removed.
+_Notice, that the prefix is removed._
 
 **Class example**
 
@@ -121,15 +121,15 @@ Notice, that the prefix is removed.
 
 <style>
 .element {
-  display: flex;
+  //
 }
 </style>
 
 <style module>
 .this-will-be-minified {
-  display: flex;
+  //
 }
 </style>
 ```
 
-Notice, that there should be no `module` attribute for styles you want to preserve.
+_Notice, that there should be no `module` attribute for styles you want to preserve._
