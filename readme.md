@@ -88,7 +88,7 @@ The plugin compiles pug and processes class and id attributes to use $style:
 
 ## Edge cases
 
-Sometimes it's needed to preserve id/class names. In this scenario use `--` as a prefix to preserve the name.
+Sometimes it's needed to preserve id/class names. In this scenario use `--` as a prefix (inside of template only) to preserve the original name.
 
 **ID Example:**
 
