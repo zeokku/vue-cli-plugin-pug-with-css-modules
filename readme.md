@@ -8,6 +8,8 @@ Vue CLI plugin to add support for pug templates with implicit support of CSS mod
 
 The plugin also provides own minification function for class names and ids used in production mode (see patched vue.config.js)
 
+**You may also check [Vite version of the plugin](https://github.com/zeokku/vite-plugin-vue-pug-with-css-modules)**
+
 ## Installation:
 
 ```
